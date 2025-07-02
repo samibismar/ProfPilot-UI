@@ -1,3 +1,4 @@
+// Make sure NEXT_PUBLIC_API_URL is set in your .env.local file
 'use client';
 
 import { useState } from 'react';
@@ -20,7 +21,7 @@ export default function Home() {
     setMatches(null);
 
     try {
-      const response = await fetch('http://localhost:8000/match', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/match`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
